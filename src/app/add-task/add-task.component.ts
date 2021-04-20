@@ -1,4 +1,4 @@
-import { TaskService } from './../task.service';
+import { TaskService } from '../task.service';
 import { Component, OnInit } from '@angular/core';
 import { stringify } from '@angular/compiler/src/util';
 
@@ -21,7 +21,8 @@ export class AddTaskComponent implements OnInit {
       this.description,
       this.priority,
       this.category,
-      this.isdone
+      this.isdone,
+
     );
   }
 }
