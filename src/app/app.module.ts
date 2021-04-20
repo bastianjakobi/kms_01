@@ -9,7 +9,7 @@ import { AddTaskComponent } from './add-task/add-task.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent
+    ListComponent,
     AddTaskComponent
   ],
   imports: [
