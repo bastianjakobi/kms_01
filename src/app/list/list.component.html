@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h4>{{title}}</h4>
+    </div>
+    <div class="col-9">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Aufgabe</th>
+          <th scope="col">Beschreibung</th>
+          <th scope="col">Priorität</th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let task of list; let i = index">
+          <td>{{i}}</td>
+          <td>{{task.name}}</td>
+          <td>{{task.description}}</td>
+          <td>{{task.priority}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
