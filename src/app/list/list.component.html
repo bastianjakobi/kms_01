@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-4">
   <div class="row">
     <div class="col-3">
       <h4>{{title}}</h4>
@@ -23,11 +23,17 @@
           <td>{{task.priority}}</td>
           <td>{{task.category}}</td>
           <td class="text-right" *ngIf="task.isDone === false; else elseBlock">
-            <button type="button" class="btn btn-secondary" (click)="taskService.done(i)">Done</button>
+            <button class="btn btn-secondary mr-2" (click)="taskService.delete(i)">
+              Delete
+            </button>
+            <button type="button" class="btn btn-primary" (click)="taskService.done(i)">Done</button>
           </td>
           <ng-template #elseBlock>
             <td class="text-right">
-              <button type="button" class="btn btn-secondary" (click)="taskService.undone(i)">Undone</button>
+              <button class="btn btn-secondary mr-2" (click)="taskService.delete(i)">
+                Delete
+              </button>
+              <button type="button" class="btn btn-primary" (click)="taskService.undone(i)">Undone</button>
             </td>
           </ng-template>
         </tr>
