@@ -1,2 +1,6 @@
 <app-add-task></app-add-task>
 
+<app-list [list]="taskService.taskList" [title]="'Tasks'"></app-list>
+
+<app-list [list]="taskService.doneList" [title]="'Done'"></app-list>
+
