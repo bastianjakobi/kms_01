@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Task} from '../../model/Task';
+import {TaskService} from '../task.service';
 
 @Component({
   selector: 'app-done',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoneComponent implements OnInit {
 
-  constructor() { }
+  public taskList: Task[] = [];
+  public doneList: Task[] = [];
+
+  constructor(public taskService: TaskService) {
+  }
+
 
   ngOnInit(): void {
   }

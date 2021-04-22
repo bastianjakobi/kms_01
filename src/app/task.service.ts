@@ -16,4 +16,13 @@ export class TaskService {
       id += 1;
       console.log(this.taskList);
   }
+
+  done(index: number): void {
+    const doneTask = this.taskList[index];
+    this.taskList.splice(index, 1);
+    console.log(index);
+    this.doneList.push(doneTask);
+  }
+
 }
+
