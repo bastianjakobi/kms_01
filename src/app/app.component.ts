@@ -1,5 +1,6 @@
 import { AddTaskComponent } from './add-task/add-task.component';
 import { Component } from '@angular/core';
+import {TaskService} from './task.service';
 
 
 @Component({
@@ -9,4 +10,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'kms01';
+
+  constructor(
+    public taskService: TaskService,
+  ) {}
 }
