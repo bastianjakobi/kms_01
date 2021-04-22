@@ -19,7 +19,15 @@ export class TaskService {
       id += 1;
       console.log(this.taskList);
   }
+
   addCategorie(category: Category): void {
     this.categories.push(category);
+  }
+
+  done(index: number): void {
+    const doneTask = this.taskList[index];
+    this.taskList.splice(index, 1);
+    console.log(index);
+    this.doneList.push(doneTask);
   }
 }
