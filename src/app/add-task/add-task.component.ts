@@ -1,6 +1,5 @@
 import { TaskService } from '../task.service';
-import { Component, OnInit } from '@angular/core';
-import { stringify } from '@angular/compiler/src/util';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 
 @Component({
   selector: 'app-add-task',
@@ -9,13 +8,14 @@ import { stringify } from '@angular/compiler/src/util';
 })
 export class AddTaskComponent implements OnInit {
   constructor(public taskService: TaskService) {}
-  name: string = '';
-  description: string = '';
-  priority: string = '';
-  category: string = '';
-  isdone: boolean = false;
-  ngOnInit(): void {}
-  handleSubmit() {
+  name: string;
+  description: string;
+  priority: string;
+  category: string;
+  isdone = false;
+  ngOnInit(): void { }
+  handleSubmit(): void {
+    console.log(this.name);
     this.taskService.addTask(
       this.name,
       this.description,
