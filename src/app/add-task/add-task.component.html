@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <form (ngSubmit)="handleSubmit()">
+  <form>
     <div class="form-group">
       <label for="nameInput">Name der Aufgabe</label>
       <input
@@ -7,7 +7,7 @@
         class="form-control"
         id="nameInput"
         name="name"
-        ([ngModel])="this.name"
+        [(ngModel)]="this.name"
         placeholder="Name der Aufgabe"
       />
     </div>
@@ -18,13 +18,13 @@
           class="form-control"
           id="descInput"
           name="description"
-          ([ngModel])="this.description"
+          [(ngModel)]="this.description"
           placeholder="Beschreibung"
         ></textarea>
       </div>
       <div class="form-group">
         <label for="priority">Priorität</label>
-        <select name="priority" id="priority" class="custom-select" ([ngModel])="this.priority">
+        <select name="priority" id="priority" class="custom-select" [(ngModel)]="this.priority">
           <option selected>Priorität auswählen</option>
           <option value="Niedrig">Niedrig</option>
           <option value="Mittel">Mittel</option>
@@ -33,8 +33,10 @@
       </div>
       <div class="form-group">
         <label for="category">Kategorie</label>
-        <select name="category" id="category" class="custom-select"></select>
+        <select name="category" id="category" class="custom-select">
+          <option value="-">-</option>
+        </select>
       </div>
-    <button type="submit" class="btn btn-primary">Erstellen</button>
+    <button type="button" class="btn btn-primary" (click)="handleSubmit()">Erstellen</button>
   </form>
 </div>
