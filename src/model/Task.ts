@@ -11,12 +11,12 @@ export class Task {
   // tslint:disable-next-line:variable-name
   private _priority: string;
   // tslint:disable-next-line:variable-name
-  private _category: Category;
+  private _category: string;
   // tslint:disable-next-line:variable-name
   private _isdone: boolean;
 
 
-  constructor(id: number, name: string, description: string, priority: string, category: Category, isdone: boolean) {
+  constructor(id: number, name: string, description: string, priority: string, category: string, isdone: boolean) {
     this._id = id;
     this._name = name;
     this._description = description;
@@ -57,11 +57,11 @@ export class Task {
     this._priority = value;
   }
 
-  get category(): Category {
+  get category(): string {
     return this._category;
   }
 
-  set category(value: Category) {
+  set category(value: string) {
     this._category = value;
   }
 
