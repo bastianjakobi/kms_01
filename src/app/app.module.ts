@@ -8,6 +8,7 @@ import { ListComponent } from './list/list.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { CategoryComponent } from './category/category.component';
 import {FormsModule} from '@angular/forms';
+import { DeleteAlertComponent } from './delete-alert/delete-alert.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {FormsModule} from '@angular/forms';
     DoneComponent,
     ListComponent,
     AddTaskComponent,
-    CategoryComponent
+    CategoryComponent,
+    DeleteAlertComponent
   ],
   imports: [
     BrowserModule,
