@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <form (ngSubmit)="addCategory()">
+    <div class="form-group">
+      <label for="category">Kategorie</label>
+      <input
+        type="text"
+        class="form-control"
+        id="category"
+        name="category"
+        [(ngModel)]="category"
+        placeholder="Kategorie"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Hinzufügen</button>
+  </form>
+</div>
+
+
+
