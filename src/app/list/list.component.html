@@ -11,6 +11,7 @@
           <th scope="col">Aufgabe</th>
           <th scope="col">Beschreibung</th>
           <th scope="col">Priorität</th>
+          <th scope="col">Kategorie</th>
           <th scope="col"></th>
         </tr>
         </thead>
@@ -20,6 +21,15 @@
           <td>{{task.name}}</td>
           <td>{{task.description}}</td>
           <td>{{task.priority}}</td>
+          <td>{{task.category}}</td>
+          <td class="text-right" *ngIf="task.isDone === false; else elseBlock">
+            <button type="button" class="btn btn-secondary" (click)="taskService.done(i)">Done</button>
+          </td>
+          <ng-template #elseBlock>
+            <td class="text-right">
+              <button type="button" class="btn btn-secondary" (click)="taskService.undone(i)">Undone</button>
+            </td>
+          </ng-template>
         </tr>
         </tbody>
       </table>
