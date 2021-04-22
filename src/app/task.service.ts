@@ -6,6 +6,7 @@ import {Task} from '../model/Task';
 })
 export class TaskService {
   public taskList: Task[];
+  public doneList: Task[];
   constructor() { }
 
   addTask(name: string, description: string, priority: string, category: string, isdone: boolean): any {
