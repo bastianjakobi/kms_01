@@ -11,7 +11,7 @@ export class AddTaskComponent implements OnInit {
   constructor(public taskService: TaskService) {}
   name: string = '';
   description: string = '';
-  priority: number = 0;
+  priority: string = '';
   category: string = '';
   isdone: boolean = false;
   ngOnInit(): void {}

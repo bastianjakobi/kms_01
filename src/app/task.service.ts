@@ -8,7 +8,7 @@ export class TaskService {
   public task: Task[];
   constructor() { }
 
-  addTask(name:string, description: string, priority: number, category: string, isdone: boolean): any {
+  addTask(name:string, description: string, priority: string, category: string, isdone: boolean): any {
 
   }
 }
