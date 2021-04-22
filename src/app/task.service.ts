@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Task} from '../model/Task';
+import {Category} from '../model/Category';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,8 @@ import {Task} from '../model/Task';
 export class TaskService {
   public taskList: Task[] = [];
   public doneList: Task[] = [];
+  public task: Task[];
+  public categories = [];
   constructor() { }
 
   addTask(name: string, description: string, priority: string, category: string, isdone: boolean): any {
@@ -16,6 +19,10 @@ export class TaskService {
       id += 1;
       console.log(this.taskList);
   }
+  addCategorie(category: Category): void {
+    this.categories.push(category);
+  }
+}
 
   done(index: number): void {
     const doneTask = this.taskList[index];
@@ -23,6 +30,3 @@ export class TaskService {
     console.log(index);
     this.doneList.push(doneTask);
   }
-
-}
-
