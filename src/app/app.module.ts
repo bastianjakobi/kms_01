@@ -6,6 +6,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DoneComponent } from './done/done.component';
 import { ListComponent } from './list/list.component';
 import { AddTaskComponent } from './add-task/add-task.component';
+import { CategoryComponent } from './category/category.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,11 +15,13 @@ import { AddTaskComponent } from './add-task/add-task.component';
     ListComponent,
     DoneComponent,
     ListComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

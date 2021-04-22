@@ -1,0 +1,18 @@
+<div class="container mt-5">
+    <div class="form-group">
+      <label for="category">Kategorie</label>
+      <input
+        type="text"
+        class="form-control"
+        id="category"
+        name="category"
+        [(ngModel)]="category"
+        aria-describedby="emailHelp"
+        placeholder="Kategorie"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="addCategory()">Hinzufügen</button>
+  </div>
+
+
+
