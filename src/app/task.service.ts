@@ -9,7 +9,7 @@ export class TaskService {
   public taskList: Task[] = [];
   public doneList: Task[] = [];
   public task: Task[];
-  public categories: Category[];
+  public categories = [];
   constructor() { }
 
   addTask(name: string, description: string, priority: string, category: string, isdone: boolean): any {

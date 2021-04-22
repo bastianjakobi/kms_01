@@ -22,7 +22,10 @@ export class AddTaskComponent implements OnInit {
       this.priority,
       this.category,
       this.isdone,
-
     );
+    this.name = '';
+    this.description = '';
+    this.priority = '';
+    this.category = '';
   }
 }

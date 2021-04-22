@@ -8,11 +8,11 @@ import {TaskService} from '../task.service';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-
-  taskService: TaskService;
   category: string;
 
-  constructor(taskService: TaskService) { }
+  constructor(public taskService: TaskService) {
+
+   }
 
   ngOnInit(): void {
   }
@@ -20,5 +20,7 @@ export class CategoryComponent implements OnInit {
   addCategory(): void  {
     console.log(this.category);
     const category: Category = new Category(this.category);
+    this.taskService.addCategorie(category)
+    this.category = '';
   }
 }
