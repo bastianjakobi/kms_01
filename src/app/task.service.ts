@@ -6,7 +6,7 @@ import { Category } from '../model/Category';
   providedIn: 'root',
 })
 export class TaskService {
-  public show: boolean = false;
+  public show = false;
   public deletedTask: string;
   public taskList: Task[] = [];
   public doneList: Task[] = [];
@@ -23,7 +23,7 @@ export class TaskService {
     isdone: boolean
   ): any {
     let id = 1;
-    let task = new Task(id, name, description, priority, category, isdone);
+    const task = new Task(id, name, description, priority, category, isdone);
     this.taskList.push(task);
     this.task.push(task);
     id += 1;
@@ -70,7 +70,4 @@ export class TaskService {
       }
     }
   }
-
-
-
 }
