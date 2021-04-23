@@ -20,7 +20,7 @@ export class CategoryComponent implements OnInit {
   addCategory(): void  {
     console.log(this.category);
     const category: Category = new Category(this.category);
-    this.taskService.addCategorie(category)
+    this.taskService.addCategorie(category);
     this.category = '';
   }
 }

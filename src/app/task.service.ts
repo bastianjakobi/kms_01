@@ -6,11 +6,12 @@ import { Category } from '../model/Category';
   providedIn: 'root',
 })
 export class TaskService {
-  public show: boolean = false;
+  public show = false;
   public deletedTask: string;
   public taskList: Task[] = [];
   public doneList: Task[] = [];
-  public task: Task[];
+  public searchedList: Task[] = [];
+  public task: Task[] = [];
   public categories = [];
   constructor() {}
 
@@ -22,8 +23,9 @@ export class TaskService {
     isdone: boolean
   ): any {
     let id = 1;
-    let task = new Task(id, name, description, priority, category, isdone);
+    const task = new Task(id, name, description, priority, category, isdone);
     this.taskList.push(task);
+    this.task.push(task);
     id += 1;
     console.log(this.taskList);
   }
@@ -47,5 +49,25 @@ export class TaskService {
       this.show = false;
       this.deletedTask = '';
     }, 5000);
+  }
+
+  searchTasks(text: string): void {
+    this.searchedList = [];
+    if (text !== undefined && text !== '') {
+      const searchText: string = text.toLocaleUpperCase();
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < this.task.length; i++) {
+        const taskToCheck: Task = this.task[i];
+        if (taskToCheck.name !== undefined && taskToCheck.name.toLocaleUpperCase().includes(searchText)) {
+          this.searchedList.push(taskToCheck);
+        } else if (taskToCheck.category !== undefined && taskToCheck.category.toLocaleUpperCase().includes(searchText)) {
+          this.searchedList.push(taskToCheck);
+        } else if (taskToCheck.description !== undefined && taskToCheck.description.toLocaleUpperCase().includes(searchText)) {
+          this.searchedList.push(taskToCheck);
+        } else if (taskToCheck.priority !== undefined && taskToCheck.priority.toLocaleUpperCase().includes(searchText)) {
+          this.searchedList.push(taskToCheck);
+        }
+      }
+    }
   }
 }
