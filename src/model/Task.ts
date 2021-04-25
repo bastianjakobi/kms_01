@@ -16,21 +16,12 @@ export class Task {
   private _isdone: boolean;
 
 
-  constructor(id: number, name: string, description: string, priority: string, category: string, isdone: boolean) {
-    this._id = id;
+  constructor(name: string, description: string, priority: string, category: string, isdone: boolean) {
     this._name = name;
     this._description = description;
     this._priority = priority;
     this._category = category;
     this._isdone = isdone;
-  }
-
-  get id(): number {
-    return this._id;
-  }
-
-  set id(value: number) {
-    this._id = value;
   }
 
   get name(): string {

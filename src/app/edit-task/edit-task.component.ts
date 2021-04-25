@@ -23,36 +23,32 @@ export class EditTaskComponent implements OnInit {
   });
 
   constructor(public taskService: TaskService,
-              private modalService: NgbModal,
               public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
     this.taskId = this.taskService.taskId;
-    for (const task of this.taskService.taskList) {
-      if (task.id === this.taskId) {
-        this.name = task.name;
+    let task = this.taskService.taskList[this.taskId];
+    console.log('das ist die id des modals: ' + this.taskId);
+    this.name = task.name;
         this.description = task.description;
         this.priority = task.priority;
         this.category = task.category;
-      }
-    }
-    /*for (const task of this.taskService.doneList) {
-      if (task.id === this.taskId) {
-        this.name = task.name;
-        this.description = task.description;
-        this.priority = task.priority;
-        this.category = task.category;
-      }
-    }
-    this.editForm.setValue({
-      name: this.name,
-      decription: this.description,
-      priority: this.priority,
-      category: this.category
-    });*/
+        this.editForm.setValue({
+          name: this.name,
+          description: this.description,
+          priority: this.priority,
+          category: this.category
+        });
   }
 
-  editSubmit(): void {
-
-  }
+ editSubmit(): void {
+   /*this.taskService.edit(
+    this.taskId,
+    this.name,
+    this.description,
+    this.priority,
+    this.category
+  );
+    this.activeModal.close(this.taskId);
+  */}
 }
