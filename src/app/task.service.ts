@@ -49,15 +49,19 @@ export class TaskService {
     this.taskId = taskId;
   }
 
-/*  edit(
+  edit(
     taskId: number,
     name: string,
-    descrption: string,
+    description: string,
     priority: string,
     category: string
   ): void {
+    this.task[taskId].name = name;
+    this.task[taskId].description = description;
+    this.task[taskId].priority = priority;
+    this.task[taskId].category = category;
 
-  }*/
+  }
 
   delete(index: number): void {
     const doneTask = this.taskList[index];

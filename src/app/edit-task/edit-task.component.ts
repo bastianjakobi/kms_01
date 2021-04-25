@@ -27,7 +27,7 @@ export class EditTaskComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskId = this.taskService.taskId;
-    let task = this.taskService.taskList[this.taskId];
+    const task = this.taskService.taskList[this.taskId];
     console.log('das ist die id des modals: ' + this.taskId);
     this.name = task.name;
         this.description = task.description;
@@ -42,13 +42,14 @@ export class EditTaskComponent implements OnInit {
   }
 
  editSubmit(): void {
-   /*this.taskService.edit(
-    this.taskId,
-    this.name,
-    this.description,
-    this.priority,
-    this.category
+   this.taskId = this.taskService.taskId;
+    this.taskService.edit(
+      this.taskId,
+      this.editForm.value.name,
+      this.editForm.value.description,
+      this.editForm.value.priority,
+      this.editForm.value.category
   );
     this.activeModal.close(this.taskId);
-  */}
+  }
 }
