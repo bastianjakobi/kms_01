@@ -45,9 +45,9 @@ export class TaskService {
     this.doneList.push(doneTask);
   }
 
-  openEditModal(i): void {
+  openEditModal(taskId: number): void {
     this.modalService.open(EditTaskComponent);
-    this.taskId = i;
+    this.taskId = taskId;
   }
 
   delete(index: number): void {

@@ -36,6 +36,20 @@ export class EditTaskComponent implements OnInit {
         this.category = task.category;
       }
     }
+    /*for (const task of this.taskService.doneList) {
+      if (task.id === this.taskId) {
+        this.name = task.name;
+        this.description = task.description;
+        this.priority = task.priority;
+        this.category = task.category;
+      }
+    }
+    this.editForm.setValue({
+      name: this.name,
+      decription: this.description,
+      priority: this.priority,
+      category: this.category
+    });*/
   }
 
   editSubmit(): void {
