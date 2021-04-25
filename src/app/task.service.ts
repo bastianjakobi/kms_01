@@ -15,6 +15,7 @@ export class TaskService {
   public searchedList: Task[] = [];
   public task: Task[] = [];
   public categories = [];
+  public taskId: number;
 
   constructor(private modalService: NgbModal) {}
 
@@ -44,8 +45,9 @@ export class TaskService {
     this.doneList.push(doneTask);
   }
 
-  openEditModal(): void {
+  openEditModal(i): void {
     this.modalService.open(EditTaskComponent);
+    this.taskId = i;
   }
 
   delete(index: number): void {
