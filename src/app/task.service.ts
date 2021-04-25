@@ -26,11 +26,9 @@ export class TaskService {
     category: string,
     isdone: boolean
   ): any {
-    let id = 1;
-    const task = new Task(id, name, description, priority, category, isdone);
-    this.taskList.push(task);
-    this.task.push(task);
-    id += 1;
+      const task = new Task(name, description, priority, category, isdone);
+      this.taskList.push(task);
+      this.task.push(task);
     console.log(this.taskList);
   }
 
@@ -46,9 +44,20 @@ export class TaskService {
   }
 
   openEditModal(taskId: number): void {
+    //const editT = this.taskList[taskId-1];
     this.modalService.open(EditTaskComponent);
     this.taskId = taskId;
   }
+
+/*  edit(
+    taskId: number,
+    name: string,
+    descrption: string,
+    priority: string,
+    category: string
+  ): void {
+
+  }*/
 
   delete(index: number): void {
     const doneTask = this.taskList[index];
@@ -79,5 +88,9 @@ export class TaskService {
         }
       }
     }
+  }
+
+  undone(i: number) {
+
   }
 }

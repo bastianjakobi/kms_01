@@ -28,4 +28,5 @@ export class AddTaskComponent implements OnInit {
     this.priority = '';
     this.category = '';
   }
+
 }

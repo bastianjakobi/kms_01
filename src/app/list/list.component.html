@@ -23,7 +23,7 @@
           <td>{{task.priority}}</td>
           <td>{{task.category}}</td>
           <td class="text-right" *ngIf="task.isDone === false; else elseBlock">
-            <button class="btn btn-secondary mr-2" (click)="taskService.openEditModal(task.id)">
+            <button class="btn btn-secondary mr-2" (click)="taskService.openEditModal(i)">
               Edit
             </button>
             <button class="btn btn-secondary mr-2" (click)="taskService.delete(i)">
