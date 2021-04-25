@@ -7,9 +7,10 @@ import { DoneComponent } from './done/done.component';
 import { ListComponent } from './list/list.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { CategoryComponent } from './category/category.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import { DeleteAlertComponent } from './delete-alert/delete-alert.component';
+import { EditTaskComponent } from './edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +22,15 @@ import { DeleteAlertComponent } from './delete-alert/delete-alert.component';
     CategoryComponent,
     SearchComponent,
     CategoryComponent,
-    DeleteAlertComponent
+    DeleteAlertComponent,
+    EditTaskComponent
   ],
-  imports: [
-    BrowserModule,
-    NgbModule,
-    FormsModule
-  ],
+    imports: [
+        BrowserModule,
+        NgbModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
