@@ -10,6 +10,7 @@ import { CategoryComponent } from './category/category.component';
 import {FormsModule} from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import { DeleteAlertComponent } from './delete-alert/delete-alert.component';
+import { EditTaskComponent } from './edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DeleteAlertComponent } from './delete-alert/delete-alert.component';
     CategoryComponent,
     SearchComponent,
     CategoryComponent,
-    DeleteAlertComponent
+    DeleteAlertComponent,
+    EditTaskComponent
   ],
   imports: [
     BrowserModule,

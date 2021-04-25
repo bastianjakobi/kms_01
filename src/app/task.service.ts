@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Task } from '../model/Task';
 import { Category } from '../model/Category';
+import {EditTaskComponent} from './edit-task/edit-task.component';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +15,8 @@ export class TaskService {
   public searchedList: Task[] = [];
   public task: Task[] = [];
   public categories = [];
-  constructor() {}
+
+  constructor(private modalService: NgbModal) {}
 
   addTask(
     name: string,
@@ -40,6 +43,11 @@ export class TaskService {
     console.log(index);
     this.doneList.push(doneTask);
   }
+
+  openEditModal(): void {
+    this.modalService.open(EditTaskComponent);
+  }
+
   delete(index: number): void {
     const doneTask = this.taskList[index];
     this.taskList.splice(index, 1);
