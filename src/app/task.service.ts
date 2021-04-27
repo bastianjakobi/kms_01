@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Task } from '../model/Task';
 import { Category } from '../model/Category';
+import {EditTaskComponent} from './edit-task/edit-task.component';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +15,9 @@ export class TaskService {
   public searchedList: Task[] = [];
   public task: Task[] = [];
   public categories = [];
-  constructor() {}
+  public taskId: number;
+
+  constructor(private modalService: NgbModal) {}
 
   addTask(
     name: string,
@@ -22,11 +26,9 @@ export class TaskService {
     category: string,
     isdone: boolean
   ): any {
-    let id = 1;
-    const task = new Task(id, name, description, priority, category, isdone);
-    this.taskList.push(task);
-    this.task.push(task);
-    id += 1;
+      const task = new Task(name, description, priority, category, isdone);
+      this.taskList.push(task);
+      this.task.push(task);
     console.log(this.taskList);
   }
 
@@ -42,12 +44,33 @@ export class TaskService {
     doneTask.isDone = true;
   }
 
+
   undone(index: number): void {
     const undoneTask = this.doneList[index];
     this.doneList.splice(index, 1);
     console.log(index);
     this.taskList.push(undoneTask);
     undoneTask.isDone = false;
+  }
+
+  openEditModal(taskId: number): void {
+    //const editT = this.taskList[taskId-1];
+    this.modalService.open(EditTaskComponent);
+    this.taskId = taskId;
+  }
+
+  edit(
+    taskId: number,
+    name: string,
+    description: string,
+    priority: string,
+    category: string
+  ): void {
+    this.task[taskId].name = name;
+    this.task[taskId].description = description;
+    this.task[taskId].priority = priority;
+    this.task[taskId].category = category;
+
   }
 
   delete(index: number): void {
@@ -79,5 +102,9 @@ export class TaskService {
         }
       }
     }
+  }
+
+  undone(i: number) {
+
   }
 }
