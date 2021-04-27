@@ -41,6 +41,16 @@ export class TaskService {
     this.taskList.splice(index, 1);
     console.log(index);
     this.doneList.push(doneTask);
+    doneTask.isDone = true;
+  }
+
+
+  undone(index: number): void {
+    const undoneTask = this.doneList[index];
+    this.doneList.splice(index, 1);
+    console.log(index);
+    this.taskList.push(undoneTask);
+    undoneTask.isDone = false;
   }
 
   openEditModal(taskId: number): void {
