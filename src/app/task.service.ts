@@ -71,15 +71,20 @@ export class TaskService {
     this.task[taskId].category = category;
   }
 
-  delete(index: number): void {
+  delete(index: number): boolean {
     const doneTask = this.taskList[index];
-    this.taskList.splice(index, 1);
-    this.deletedTask = doneTask.name;
-    this.show = true;
-    setTimeout(() => {
-      this.show = false;
-      this.deletedTask = '';
-    }, 5000);
+    if (doneTask) {
+      this.taskList.splice(index, 1);
+      this.deletedTask = doneTask.name;
+      this.show = true;
+      setTimeout(() => {
+        this.show = false;
+        this.deletedTask = '';
+      }, 5000);
+      return true;
+    } else {
+      return false;
+    }
   }
 
   searchTasks(text: string): void {
