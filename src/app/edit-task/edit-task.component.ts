@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../task.service';
 import {
-  NgbModal,
-  ModalDismissReasons,
   NgbActiveModal,
 } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Category } from '../../model/Category';
 
 @Component({
   selector: 'app-edit-task',
@@ -34,7 +31,6 @@ export class EditTaskComponent implements OnInit {
   ngOnInit(): void {
     this.taskId = this.taskService.taskId;
     const task = this.taskService.taskList[this.taskId];
-    console.log('das ist die id des modals: ' + this.taskId);
     this.name = task.name;
     this.description = task.description;
     this.priority = task.priority;

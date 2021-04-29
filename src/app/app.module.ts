@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DoneComponent } from './done/done.component';
 import { ListComponent } from './list/list.component';
 import { AddTaskComponent } from './add-task/add-task.component';
@@ -31,7 +31,7 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
         FormsModule,
         ReactiveFormsModule
     ],
-  providers: [],
+  providers: [NgbActiveModal],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,11 +1,25 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {DeleteAlertComponent} from './delete-alert/delete-alert.component';
+import {AddTaskComponent} from './add-task/add-task.component';
+import {CategoryComponent} from './category/category.component';
+import {ListComponent} from './list/list.component';
+import {SearchComponent} from './search/search.component';
+import {FormsModule} from '@angular/forms';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        DeleteAlertComponent,
+        AddTaskComponent,
+        CategoryComponent,
+        ListComponent,
+        SearchComponent
+      ],
+      imports: [
+        FormsModule
       ],
     }).compileComponents();
   });
@@ -20,12 +34,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('kms01');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('kms01 app is running!');
   });
 });
