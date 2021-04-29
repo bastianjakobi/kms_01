@@ -12,7 +12,7 @@ export class TaskService {
   public deletedTask: string;
   public taskList: Task[] = [];
   public doneList: Task[] = [];
-  public searchedList: Task[] = [];
+  public resultSearchedList: Task[] = [];
   public task: Task[] = [];
   public categories = [];
   public taskId: number;
@@ -88,32 +88,19 @@ export class TaskService {
   }
 
   searchTasks(text: string): void {
-    this.searchedList = [];
+    this.resultSearchedList = [];
+    const mergedListForSearching: Task[] = [...this.taskList, ...this.doneList];
     if (text !== undefined && text !== '') {
       const searchText: string = text.toLocaleUpperCase();
-      // tslint:disable-next-line:prefer-for-of
-      for (let i = 0; i < this.task.length; i++) {
-        const taskToCheck: Task = this.task[i];
-        if (
-          taskToCheck.name !== undefined &&
-          taskToCheck.name.toLocaleUpperCase().includes(searchText)
-        ) {
-          this.searchedList.push(taskToCheck);
-        } else if (
-          taskToCheck.category !== undefined &&
-          taskToCheck.category.toLocaleUpperCase().includes(searchText)
-        ) {
-          this.searchedList.push(taskToCheck);
-        } else if (
-          taskToCheck.description !== undefined &&
-          taskToCheck.description.toLocaleUpperCase().includes(searchText)
-        ) {
-          this.searchedList.push(taskToCheck);
-        } else if (
-          taskToCheck.priority !== undefined &&
-          taskToCheck.priority.toLocaleUpperCase().includes(searchText)
-        ) {
-          this.searchedList.push(taskToCheck);
+      for (const task of mergedListForSearching) {
+        if (task.name !== undefined && task.name.toLocaleUpperCase().includes(searchText)) {
+          this.resultSearchedList.push(task);
+        } else if (task.category !== undefined && task.category.toLocaleUpperCase().includes(searchText)) {
+          this.resultSearchedList.push(task);
+        } else if (task.description !== undefined && task.description.toLocaleUpperCase().includes(searchText)) {
+          this.resultSearchedList.push(task);
+        } else if (task.priority !== undefined && task.priority.toLocaleUpperCase().includes(searchText)) {
+          this.resultSearchedList.push(task);
         }
       }
     }
