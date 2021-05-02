@@ -14,6 +14,29 @@ describe('TaskService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should edit task', () => {
+    service.taskList.push(new Task('Test 1', 'Test 1 Description', 'High', 'Test', false),
+      new Task('Test 2', 'Test 2 Description', 'High', 'Test', false));
+    expect(service.taskList.length).toBe( 2 );
+
+    expect(service.taskList[0].name).toBe('Test 1');
+    expect(service.edit(0, 'TestEdit', 'Test 1 Description', 'High', 'Test')).toBeTrue();
+    expect(service.taskList[0].name).toBe('TestEdit');
+
+    expect(service.taskList[1].description).toBe('Test 2 Description');
+    expect(service.edit(1, 'Test 2', 'TestEdit Description', 'High', 'Test')).toBeTrue();
+    expect(service.taskList[1].description).toBe('TestEdit Description');
+  });
+
+  it('should not edit task by unknown taskId', () => {
+    service.taskList.push(new Task('Test 1', 'Test 1 Description', 'High', 'Test', false),
+      new Task('Test 2', 'Test 2 Description', 'High', 'Test', false));
+    expect(service.taskList.length).toBe( 2 );
+
+    expect(service.edit(2, 'TestEdit', 'Test 1 Description', 'High', 'Test')).toBeFalse();
+  });
+
   it('should delete tasks', () => {
     service.taskList.push(new Task('Test 1', 'Test 1 Description', 'High', '', false),
       new Task('Test 2', 'Test 2 Description', 'High', '', false));
@@ -23,6 +46,7 @@ describe('TaskService', () => {
     expect(service.delete(2)).toBeFalse();
     expect(service.taskList.length).toBe(1);
   });
+
   it('search should return 3 objects with high priority', () => {
     for (let i = 0; i < 3; i++) {
       service.taskList.push(new Task('Priority Title', 'Priority Description', 'High', '', false));
@@ -36,6 +60,7 @@ describe('TaskService', () => {
       expect(task.priority).toEqual('High');
     }
   });
+
   it('search should merge done and undone list with same title and return two tasks', () => {
     service.taskList.push(new Task('Same Title', 'Priority Description', 'High', '', false));
     service.doneList.push(new Task('Same Title', 'Priority Description', 'Low', '', true));
@@ -45,6 +70,7 @@ describe('TaskService', () => {
       expect(task.name).toEqual('Same Title');
     }
   });
+
   it('no search results are expected', () => {
     for (let i = 0; i < 3; i++) {
       service.taskList.push(new Task('Priority Title', 'Priority Description', 'High', '', false));

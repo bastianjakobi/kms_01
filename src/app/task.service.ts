@@ -13,7 +13,6 @@ export class TaskService {
   public taskList: Task[] = [];
   public doneList: Task[] = [];
   public resultSearchedList: Task[] = [];
-  public task: Task[] = [];
   public categories = [];
   public taskId: number;
 
@@ -28,7 +27,6 @@ export class TaskService {
   ): any {
     const task = new Task(name, description, priority, category, isdone);
     this.taskList.push(task);
-    this.task.push(task);
     console.log(this.taskList);
   }
 
@@ -64,11 +62,16 @@ export class TaskService {
     description: string,
     priority: string,
     category: string
-  ): void {
-    this.task[taskId].name = name;
-    this.task[taskId].description = description;
-    this.task[taskId].priority = priority;
-    this.task[taskId].category = category;
+  ): boolean {
+    if (this.taskList.length >= taskId + 1) {
+      this.taskList[taskId].name = name;
+      this.taskList[taskId].description = description;
+      this.taskList[taskId].priority = priority;
+      this.taskList[taskId].category = category;
+      return true;
+    } else {
+      return false;
+    }
   }
 
   delete(index: number): boolean {
