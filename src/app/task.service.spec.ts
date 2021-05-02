@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { Task } from 'src/model/Task';
 
 import { TaskService } from './task.service';
+import {Category} from '../model/Category';
 
 describe('TaskService', () => {
   let service: TaskService;
@@ -13,6 +14,28 @@ describe('TaskService', () => {
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+  it('should add a task', () => {
+    expect(service.taskList.length).toBe( 0);
+
+    expect(service.addTask('Test 1', 'Test 1 Description', 'High', 'Test1', false)).toBeTrue();
+    expect(service.taskList.length).toBe(1);
+
+    expect(service.addTask('Test 2', 'Test 2 Description', 'High', 'Test2', false)).toBeTrue();
+    expect(service.taskList.length).toBe(2);
+    expect(service.taskList[1].description).toBe('Test 2 Description');
+    expect(service.taskList[1].priority).toBe('High');
+    expect(service.taskList[1].category).toBe('Test2');
+    expect(service.taskList[1].isDone).toBe(false);
+  });
+
+  it('should not add a task', () => {
+    expect(service.addTask('', 'Test 2 Description', 'High', 'Test2', false)).toBeFalse();
+    expect(service.taskList.length).toBe( 0 );
+
+    expect(service.addTask('Test 3', '', 'High', 'Test3', false)).toBeFalse();
+    expect(service.taskList.length).toBe( 0);
   });
 
   it('should edit task', () => {

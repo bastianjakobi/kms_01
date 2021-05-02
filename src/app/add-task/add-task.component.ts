@@ -15,18 +15,20 @@ export class AddTaskComponent implements OnInit {
   isdone = false;
   ngOnInit(): void { }
   handleSubmit(): void {
-    console.log(this.name);
-    this.taskService.addTask(
-      this.name,
-      this.description,
-      this.priority,
-      this.category,
-      this.isdone,
-    );
-    this.name = '';
-    this.description = '';
-    this.priority = '';
-    this.category = '';
-  }
+    if (this.name && this.description != null){
+      this.taskService.addTask(
+        this.name,
+        this.description,
+        this.priority,
+        this.category,
+        this.isdone,
+      );
+      this.name = '';
+      this.description = '';
+      this.priority = '';
+      this.category = '';
 
+    } console.log('Der Name ist leer');
+    console.log(this.taskService[0]);
+  }
 }

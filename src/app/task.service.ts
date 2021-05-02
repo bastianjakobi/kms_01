@@ -10,6 +10,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class TaskService {
   public show = false;
   public deletedTask: string;
+  public task: Task[] = [];
   public taskList: Task[] = [];
   public doneList: Task[] = [];
   public resultSearchedList: Task[] = [];
@@ -24,14 +25,18 @@ export class TaskService {
     priority: string,
     category: string,
     isdone: boolean
-  ): any {
-    const task = new Task(name, description, priority, category, isdone);
-    this.taskList.push(task);
-    console.log(this.taskList);
+  ): boolean {
+    if (name == '' || name == null || description == '' || description == null){
+      return false;
+    } else {
+      const task = new Task(name, description, priority, category, isdone);
+      this.taskList.push(task);
+      return true;
+    }
   }
 
-  addCategorie(category: Category): void {
-    this.categories.push(category);
+  addCategorie(category: Category): any {
+    return this.categories.push(category);
   }
 
   done(index: number): void {

@@ -1,9 +1,6 @@
 import {Category} from './Category';
 
 export class Task {
-
-  // tslint:disable-next-line:variable-name
-  private _id: number;
   // tslint:disable-next-line:variable-name
   private _name: string;
   // tslint:disable-next-line:variable-name
