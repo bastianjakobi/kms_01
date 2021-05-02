@@ -27,8 +27,6 @@ export class AddTaskComponent implements OnInit {
       this.description = '';
       this.priority = '';
       this.category = '';
-
-    } console.log('Der Name ist leer');
-    console.log(this.taskService[0]);
+    }
   }
 }
