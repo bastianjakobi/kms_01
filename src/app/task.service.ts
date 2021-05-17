@@ -10,10 +10,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class TaskService {
   public show = false;
   public deletedTask: string;
+  public task: Task[] = [];
   public taskList: Task[] = [];
   public doneList: Task[] = [];
   public resultSearchedList: Task[] = [];
-  public task: Task[] = [];
   public categories = [];
   public taskId: number;
 
@@ -25,15 +25,18 @@ export class TaskService {
     priority: string,
     category: string,
     isdone: boolean
-  ): any {
-    const task = new Task(name, description, priority, category, isdone);
-    this.taskList.push(task);
-    this.task.push(task);
-    console.log(this.taskList);
+  ): boolean {
+    if (name == '' || name == null || description == '' || description == null){
+      return false;
+    } else {
+      const task = new Task(name, description, priority, category, isdone);
+      this.taskList.push(task);
+      return true;
+    }
   }
 
-  addCategorie(category: Category): void {
-    this.categories.push(category);
+  addCategorie(category: Category): any {
+    return this.categories.push(category);
   }
 
   done(index: number): void {
@@ -64,11 +67,16 @@ export class TaskService {
     description: string,
     priority: string,
     category: string
-  ): void {
-    this.task[taskId].name = name;
-    this.task[taskId].description = description;
-    this.task[taskId].priority = priority;
-    this.task[taskId].category = category;
+  ): boolean {
+    if (this.taskList.length >= taskId + 1) {
+      this.taskList[taskId].name = name;
+      this.taskList[taskId].description = description;
+      this.taskList[taskId].priority = priority;
+      this.taskList[taskId].category = category;
+      return true;
+    } else {
+      return false;
+    }
   }
 
   delete(index: number): boolean {
