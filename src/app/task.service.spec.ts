@@ -60,6 +60,16 @@ describe('TaskService', () => {
     expect(service.edit(2, 'TestEdit', 'Test 1 Description', 'High', 'Test')).toBeFalse();
   });
 
+  it('should done tasks', () => {
+    service.taskList.push(new Task('TestDone 1', 'TestDone 1 Description', 'High', 'Test', false),
+      new Task('TestDone 2', 'TestDone 2 Description', 'High', 'Test', false));
+    expect(service.taskList.length).toBe( 2 );
+    expect(service.done(0));
+    expect(service.taskList.length).toBe(1);
+    expect(service.doneList.length).toBe(1);
+
+  });
+
   it('should delete tasks', () => {
     service.taskList.push(new Task('Test 1', 'Test 1 Description', 'High', '', false),
       new Task('Test 2', 'Test 2 Description', 'High', '', false));
