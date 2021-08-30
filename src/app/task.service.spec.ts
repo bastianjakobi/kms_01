@@ -67,7 +67,6 @@ describe('TaskService', () => {
     expect(service.done(0));
     expect(service.taskList.length).toBe(1);
     expect(service.doneList.length).toBe(1);
-
   });
 
   it('should delete tasks', () => {
